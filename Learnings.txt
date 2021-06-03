@@ -6,3 +6,13 @@ Lemma is the base of any word (walk is the base of walking). Stopwords are words
 token.lemma_ returns if a word (token) is in its base form, and token.is_stop returns if a token is a stop word or not. 
 Although lemmatizing and dropping stopwords help the model to focus on important words, it may also impact it's performance. This should be considered as a hyperparameter in the optimization process.
 You must create a "Matcher" to match individual tokens. It is a lot easier to use PhraseMatcher to match a list of words. 
+
+Text classificaiton is a common task in Natural Language Processing. 
+Machine learning models cannot learn from strings or texts; you need to convert all of them into some numeric data. 
+However, all these words can be expressed in the form of word vectors with the occuerence frequencies. A "bag of words" representation is a set of vectors with the occurences of each word.
+Term Frequency-Inverse Document Frequency is another way to do this, but I have not explored it.
+Pipe classes help to process and transform tokens. To process the sentiment, you will need to add a pipe. 
+You can create a text-categorization pipe with a configuration. 
+nlp.create_pip("textcat", config{"exclusive_classes":True, "architexture":"bow"}) lets you create a new pipe.
+You can add labels to your text classifier.
+To train a model, you need to split it into a training dataset and a testing dataset. You must not test on the same dataset, as you will not be able to judge its accuracy. 
