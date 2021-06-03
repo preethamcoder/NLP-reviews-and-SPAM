@@ -1,0 +1,8 @@
+I implemented this model using spaCy, an NLP library in Python. 
+To load the "English" language module, I used "spacy.load("en_core_web_sm"), but you could also use "spacy.load("en")" for simplicity's sake. 
+Data would be stored in the form of documents, which the the base of your application! You will need to employ this model on the data. nlp(data) would activate a data object with the module on it.
+A token is a unit of text in the document, which consists of either words or punctuations. Although it is originally split using spaces, any contractions like "don't" would be split into "do" and "n't."
+Lemma is the base of any word (walk is the base of walking). Stopwords are words that are integral for sentence formation, but do not have any important information (is, and, are would be some examples).
+token.lemma_ returns if a word (token) is in its base form, and token.is_stop returns if a token is a stop word or not. 
+Although lemmatizing and dropping stopwords help the model to focus on important words, it may also impact it's performance. This should be considered as a hyperparameter in the optimization process.
+You must create a "Matcher" to match individual tokens. It is a lot easier to use PhraseMatcher to match a list of words. 
