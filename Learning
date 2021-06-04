@@ -15,4 +15,5 @@ Pipe classes help to process and transform tokens. To process the sentiment, you
 You can create a text-categorization pipe with a configuration. 
 nlp.create_pip("textcat", config{"exclusive_classes":True, "architexture":"bow"}) lets you create a new pipe.
 You can add labels to your text classifier.
-To train a model, you need to split it into a training dataset and a testing dataset. You must not test on the same dataset, as you will not be able to judge its accuracy. 
+To train a model, you need to split it into a training dataset and a testing dataset. You must not test on the same dataset, as you will not be able to judge its accuracy.
+
