@@ -12,8 +12,14 @@ Machine learning models cannot learn from strings or texts; you need to convert 
 However, all these words can be expressed in the form of word vectors with the occuerence frequencies. A "bag of words" representation is a set of vectors with the occurences of each word.
 Term Frequency-Inverse Document Frequency is another way to do this, but I have not explored it.
 Pipe classes help to process and transform tokens. To process the sentiment, you will need to add a pipe. 
-You can create a text-categorization pipe with a configuration. 
-nlp.create_pip("textcat", config{"exclusive_classes":True, "architexture":"bow"}) lets you create a new pipe.
+You can create a text-categorization pipe with a configuration - in this case, I did it with a "bow architecture." 
+nlp.create_pipe("textcat", config{"exclusive_classes":True, "architexture":"bow"}) lets you create a new pipe.
 You can add labels to your text classifier.
+Use the add_pipe() function to add the text categorizer to your NLP model.
 To train a model, you need to split it into a training dataset and a testing dataset. You must not test on the same dataset, as you will not be able to judge its accuracy.
 
+Labels in the data must be converted to a form the model requires. 
+In the model I created, I set the executive classes to be true. So, the "spam" will be assigned a dictionary value of False, just like the "ham" will be assigned a value of True.
+This would form the train labels for the model. You should combine the train data and the labels into a single list to facilitate training the model.
+I used an optimizer to get my results faster. It is advised to train models in smaller batches, so you can use spacy's minibatch feature.
+The batch generator (minibatch) allows you to define sizes of your batches.
